@@ -67,3 +67,7 @@ app.post('/api/send_form', (req, res) => {
   res.send("Req is sended");
 
 })
+
+app.listen(process.env.BACKEND_SERVER_PORT, () => {
+  console.log("Hello from theneyre :3")
+})  
