@@ -29,11 +29,11 @@ app.get('/api/cars', (req, res) => {
 
 app.post('/api/send_form', (req, res) => {
 
-  const phone = req.body.phonenumber;
+  const phone = req.body.phone;
   const email = req.body.email;
-  const name = req.body.username;
+  const name = req.body.name;
 
-  const $b24 = B24Hook.fromWebhookUrl(process.env.B24_WEEBHOOK_TOKEN);
+  const $b24 = B24Hook.fromWebhookUrl(process.env.B24_WEBHOOK_TOKEN);
   const response = $b24.actions.v2.call.make({
     method: 'crm.item.add',
     requestId: "server-request",
