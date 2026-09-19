@@ -29,9 +29,9 @@ app.get('/api/cars', (req, res) => {
 
 app.post('/api/send_form', (req, res) => {
 
-  const phonenumber = req.body.phonenumber;
+  const phone = req.body.phonenumber;
   const email = req.body.email;
-  const username = req.body.username;
+  const name = req.body.username;
 
   const $b24 = B24Hook.fromWebhookUrl(process.env.B24_WEEBHOOK_TOKEN);
   const response = $b24.actions.v2.call.make({
@@ -41,11 +41,11 @@ app.post('/api/send_form', (req, res) => {
       entityTypeId: 1,
       fields: {
         "title": "Новая заявка с сайта fidelis-group.ru",
-        "name": username,
+        "name": name,
         "fm": [
           {
             "valueType": "WORK",
-            "value": phonenumber,
+            "value": phone,
             "typeId": "PHONE"
           },
           {
